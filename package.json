@@ -1,0 +1,29 @@
+{
+  "name": "bank_ocr_kata",
+  "version": "1.0.0",
+  "description": "Take home project for Test Double interview",
+  "main": "bank_ocr",
+  "scripts": {
+    "test": "standard && jest"
+  },
+  "author": "Luis F Gutierrez",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "standard": "^14.3.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.6.0"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "expect"
+    ]
+  }
+}
