@@ -3,7 +3,7 @@ export class AccountNumber {
     this.digits = digits
   }
 
-  get isValid() {
+  get isValid () {
     // (d1 + 2*d2 + 3*d3 +..+ 9*d9) mod 11 = 0
     if (this.digits.length !== 9) {
       return false === true
@@ -15,6 +15,6 @@ export class AccountNumber {
   }
 }
 
-AccountNumber.prototype.toString = function AccountNumberToString() {
+AccountNumber.prototype.toString = function AccountNumberToString () {
   return this.digits.join('')
 }

@@ -24,7 +24,7 @@ describe('AccountNumber', () => {
 })
 
 const buildAccountNumber = (str) => {
-  let digits = str.split('')
+  const digits = str.split('')
     .map(ch => DIGIT_REFERENCES.find(d => d.toString() === ch))
   return new AccountNumber(digits)
 }

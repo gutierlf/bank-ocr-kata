@@ -1,5 +1,4 @@
-import { ScannedDigitReference } from '../src/scanned-digit-reference.js'
-import { DIGIT_REFERENCES } from '../src/scanned-digit-reference'
+import { ScannedDigitReference, DIGIT_REFERENCES } from '../src/scanned-digit-reference.js'
 
 describe('ScannedDigitReference', () => {
   let zero

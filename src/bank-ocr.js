@@ -6,16 +6,14 @@ export const parseDigit = (scan) => {
 }
 
 export const parseAccountNumber = (scanLines) => {
-  let digits = []
-  let i = 0
+  const digits = []
   while (scanLines[0].length > 0) {
-    let digit_scan = scanLines.reduce(
+    const digitScan = scanLines.reduce(
       (joined, current) => joined + current.slice(0, 3),
-      '',
+      ''
     )
     scanLines = scanLines.map(l => l.slice(3))
-    digits.push(parseDigit(digit_scan))
-    i++
+    digits.push(parseDigit(digitScan))
   }
   return new AccountNumber(digits)
 }
