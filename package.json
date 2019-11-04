@@ -23,7 +23,8 @@
     "globals": [
       "describe",
       "it",
-      "expect"
+      "expect",
+      "beforeEach"
     ]
   }
 }
