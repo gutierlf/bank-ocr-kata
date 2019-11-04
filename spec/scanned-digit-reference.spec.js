@@ -1,5 +1,4 @@
-import { ScannedDigitReference, DIGIT_REFERENCES } from '../src/scanned-digit-reference.js'
-import { IllegibleScannedDigit } from '../src/scanned-digit-reference'
+import { ScannedDigitReference, DIGIT_REFERENCES, IllegibleScannedDigit } from '../src/scanned-digit-reference.js'
 
 describe('ScannedDigitReference', () => {
   let zero
@@ -69,5 +68,3 @@ describe('IllegibleScannedDigit', () => {
     })
   })
 })
-
-

@@ -2,7 +2,7 @@ export class AccountNumberPresenter {
   constructor (accountNumber) {
     this.accountNumber = accountNumber
   }
-  
+
   get number () {
     const number = this.accountNumber.toString()
     let suffix

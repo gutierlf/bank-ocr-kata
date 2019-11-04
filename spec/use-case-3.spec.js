@@ -1,6 +1,7 @@
 import { parseAccountNumber } from '../src/bank-ocr'
 import { AccountNumberPresenter } from '../src/account-number-presenter'
 
+/* eslint-disable no-multi-str */
 describe('parse and report', () => {
   it('reports good numbers', () => {
     const scanLines = '\
@@ -33,3 +34,4 @@ describe('parse and report', () => {
     expect(presenter.number).toEqual('1234?678? ILL')
   })
 })
+/* eslint-enable no-multi-str */

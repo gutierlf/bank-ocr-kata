@@ -1,4 +1,3 @@
-import { AccountNumber } from '../src/account-number'
 import { buildAccountNumber } from './support/account-number.support'
 
 describe('AccountNumber', () => {
@@ -31,5 +30,3 @@ describe('AccountNumber', () => {
     })
   })
 })
-
-
