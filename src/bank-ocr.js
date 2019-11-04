@@ -1,8 +1,12 @@
-import { DIGIT_REFERENCES } from './scanned-digit-reference'
+import { DIGIT_REFERENCES, IllegibleScannedDigit } from './scanned-digit-reference'
 import { AccountNumber } from './account-number'
 
 export const parseDigit = (scan) => {
-  return DIGIT_REFERENCES.find(d => scan === d.scan)
+  const digit = DIGIT_REFERENCES.find(d => scan === d.scan)
+  if (digit === undefined) {
+    return new IllegibleScannedDigit(scan)
+  }
+  return digit
 }
 
 export const parseAccountNumber = (scanLines) => {

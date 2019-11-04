@@ -82,6 +82,14 @@ describe('parseDigit', () => {
 '
     expect(parseDigit(scan).toString()).toEqual('9')
   })
+  it('returns an illegible number for bad scans', () => {
+    const scan = '\
+   \
+   \
+   \
+'
+    expect(parseDigit(scan).toString()).toEqual('?')
+  })
 })
 
 describe('parseAccountNumber', () => {

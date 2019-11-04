@@ -1,4 +1,5 @@
 import { ScannedDigitReference, DIGIT_REFERENCES } from '../src/scanned-digit-reference.js'
+import { IllegibleScannedDigit } from '../src/scanned-digit-reference'
 
 describe('ScannedDigitReference', () => {
   let zero
@@ -26,6 +27,11 @@ describe('ScannedDigitReference', () => {
       expect(zero.toString()).toEqual('0')
     })
   })
+  describe('#isLegible', () => {
+    it('returns true', () => {
+      expect(zero.isLegible).toEqual(true)
+    })
+  })
 })
 
 describe('DIGIT_REFERENCES', () => {
@@ -33,3 +39,35 @@ describe('DIGIT_REFERENCES', () => {
     expect(DIGIT_REFERENCES.length).toEqual(10)
   })
 })
+
+describe('IllegibleScannedDigit', () => {
+  let illegible
+  beforeEach(() => {
+    /* eslint-disable no-multi-str */
+    const scan = '\
+ _ \
+| x\
+|_|\
+'
+    /* eslint-enable no-multi-str */
+    illegible = new IllegibleScannedDigit(scan)
+  })
+
+  describe('properties', () => {
+    it('include the scanned characters', () => {
+      expect(illegible.scan).toEqual(' _ | x|_|')
+    })
+  })
+  describe('#toString', () => {
+    it('returns the digit', () => {
+      expect(illegible.toString()).toEqual('?')
+    })
+  })
+  describe('#isLegible', () => {
+    it('returns false', () => {
+      expect(illegible.isLegible).toEqual(false)
+    })
+  })
+})
+
+

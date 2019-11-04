@@ -1,7 +1,5 @@
-import {
-  AccountNumber
-} from '../src/account-number'
-import { DIGIT_REFERENCES } from '../src/scanned-digit-reference'
+import { AccountNumber } from '../src/account-number'
+import { buildAccountNumber } from './support/account-number.support'
 
 describe('AccountNumber', () => {
   describe('#toString', () => {
@@ -21,10 +19,17 @@ describe('AccountNumber', () => {
       expect(accountNumber.isValid).toEqual(false)
     })
   })
+
+  describe('#isLegible', () => {
+    it('is true when all digits scanned correctly', () => {
+      const accountNumber = buildAccountNumber('457508000')
+      expect(accountNumber.isLegible).toEqual(true)
+    })
+    it('is false when some digits scanned incorrectly', () => {
+      const accountNumber = buildAccountNumber('4575x8000')
+      expect(accountNumber.isLegible).toEqual(false)
+    })
+  })
 })
 
-const buildAccountNumber = (str) => {
-  const digits = str.split('')
-    .map(ch => DIGIT_REFERENCES.find(d => d.toString() === ch))
-  return new AccountNumber(digits)
-}
+
