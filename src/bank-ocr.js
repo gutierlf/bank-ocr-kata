@@ -10,14 +10,18 @@ export const parseDigit = (scan) => {
 }
 
 export const parseAccountNumber = (scanLines) => {
-  const digits = []
-  while (scanLines[0].length > 0) {
-    const digitScan = scanLines.reduce(
-      (joined, current) => joined + current.slice(0, 3),
-      ''
-    )
-    scanLines = scanLines.map(l => l.slice(3))
-    digits.push(parseDigit(digitScan))
+  function splitDigitScans () {
+    const digitScans = []
+    while (scanLines[0].length > 0) {
+      digitScans.push(scanLines.reduce(
+        (joined, current) => joined + current.slice(0, 3),
+        ''
+      ))
+      scanLines = scanLines.map(l => l.slice(3))
+    }
+    return digitScans
   }
+
+  const digits = splitDigitScans().map(s => parseDigit(s))
   return new AccountNumber(digits)
 }
