@@ -93,103 +93,13 @@ describe('parseDigit', () => {
 })
 
 describe('parseAccountNumber', () => {
-  it('parses zeros', () => {
-    const scanLines = '\
- _  _  _  _  _  _  _  _  _ \n\
-| || || || || || || || || |\n\
-|_||_||_||_||_||_||_||_||_|\n\
-'
-    const accountNumber = parseAccountNumber(scanLines.split('\n'))
-    expect(accountNumber.toString()).toEqual('000000000')
-  })
-  it('parses ones', () => {
-    const scanLines = '\
-                           \n\
-  |  |  |  |  |  |  |  |  |\n\
-  |  |  |  |  |  |  |  |  |\n\
-'
-    const accountNumber = parseAccountNumber(scanLines.split('\n'))
-    expect(accountNumber.toString()).toEqual('111111111')
-  })
-  it('parses twos', () => {
-    const scanLines = '\
- _  _  _  _  _  _  _  _  _ \n\
- _| _| _| _| _| _| _| _| _|\n\
-|_ |_ |_ |_ |_ |_ |_ |_ |_ \n\
-'
-    const accountNumber = parseAccountNumber(scanLines.split('\n'))
-    expect(accountNumber.toString()).toEqual('222222222')
-  })
-  it('parses threes', () => {
-    const scanLines = '\
- _  _  _  _  _  _  _  _  _ \n\
- _| _| _| _| _| _| _| _| _|\n\
- _| _| _| _| _| _| _| _| _|\n\
-'
-    const accountNumber = parseAccountNumber(scanLines.split('\n'))
-    expect(accountNumber.toString()).toEqual('333333333')
-  })
-  it('parses fours', () => {
-    const scanLines = '\
-                           \n\
-|_||_||_||_||_||_||_||_||_|\n\
-  |  |  |  |  |  |  |  |  |\n\
-'
-    const accountNumber = parseAccountNumber(scanLines.split('\n'))
-    expect(accountNumber.toString()).toEqual('444444444')
-  })
-  it('parses fives', () => {
-    const scanLines = '\
- _  _  _  _  _  _  _  _  _ \n\
-|_ |_ |_ |_ |_ |_ |_ |_ |_ \n\
- _| _| _| _| _| _| _| _| _|\n\
-'
-    const accountNumber = parseAccountNumber(scanLines.split('\n'))
-    expect(accountNumber.toString()).toEqual('555555555')
-  })
-  it('parses sixes', () => {
-    const scanLines = '\
- _  _  _  _  _  _  _  _  _ \n\
-|_ |_ |_ |_ |_ |_ |_ |_ |_ \n\
-|_||_||_||_||_||_||_||_||_|\n\
-'
-    const accountNumber = parseAccountNumber(scanLines.split('\n'))
-    expect(accountNumber.toString()).toEqual('666666666')
-  })
-  it('parses sevens', () => {
-    const scanLines = '\
- _  _  _  _  _  _  _  _  _ \n\
-  |  |  |  |  |  |  |  |  |\n\
-  |  |  |  |  |  |  |  |  |\n\
-'
-    const accountNumber = parseAccountNumber(scanLines.split('\n'))
-    expect(accountNumber.toString()).toEqual('777777777')
-  })
-  it('parses eights', () => {
-    const scanLines = '\
- _  _  _  _  _  _  _  _  _ \n\
-|_||_||_||_||_||_||_||_||_|\n\
-|_||_||_||_||_||_||_||_||_|\n\
-'
-    const accountNumber = parseAccountNumber(scanLines.split('\n'))
-    expect(accountNumber.toString()).toEqual('888888888')
-  })
-  it('parses nines', () => {
-    const scanLines = '\
- _  _  _  _  _  _  _  _  _ \n\
-|_||_||_||_||_||_||_||_||_|\n\
- _| _| _| _| _| _| _| _| _|\n\
-'
-    const accountNumber = parseAccountNumber(scanLines.split('\n'))
-    expect(accountNumber.toString()).toEqual('999999999')
-  })
-  it('parses mixed numbers', () => {
+  it('parses a whole account number', () => {
     const scanLines = '\
     _  _     _  _  _  _  _ \n\
   | _| _||_||_ |_   ||_||_|\n\
   ||_  _|  | _||_|  ||_| _|\n\
-'
-    const accountNumber = parseAccountNumber(scanLines.split('\n'))
+'.split('\n')
+    const accountNumber = parseAccountNumber(scanLines)
     expect(accountNumber.toString()).toEqual('123456789')
   })
 })

@@ -8,8 +8,8 @@ describe('parse and report', () => {
  _  _  _  _  _  _  _  _    \n\
 | || || || || || || ||_   |\n\
 |_||_||_||_||_||_||_| _|  |\n\
-'
-    const accountNumber = parseAccountNumber(scanLines.split('\n'))
+'.split('\n')
+    const accountNumber = parseAccountNumber(scanLines)
     const presenter = new AccountNumberPresenter(accountNumber)
     expect(presenter.number).toEqual('000000051')
   })
@@ -18,8 +18,8 @@ describe('parse and report', () => {
     _  _  _  _  _  _     _ \n\
 |_||_|| || ||_   |  |  | _ \n\
   | _||_||_||_|  |  |  | _|\n\
-'
-    const accountNumber = parseAccountNumber(scanLines.split('\n'))
+'.split('\n')
+    const accountNumber = parseAccountNumber(scanLines)
     const presenter = new AccountNumberPresenter(accountNumber)
     expect(presenter.number).toEqual('49006771? ILL')
   })
@@ -28,8 +28,8 @@ describe('parse and report', () => {
     _  _     _  _  _  _  _ \n\
   | _| _||_| _ |_   ||_||_|\n\
   ||_  _|  | _||_|  ||_| _ \n\
-'
-    const accountNumber = parseAccountNumber(scanLines.split('\n'))
+'.split('\n')
+    const accountNumber = parseAccountNumber(scanLines)
     const presenter = new AccountNumberPresenter(accountNumber)
     expect(presenter.number).toEqual('1234?678? ILL')
   })
