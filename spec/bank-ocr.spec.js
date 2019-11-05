@@ -8,7 +8,7 @@ describe('parseDigit', () => {
 | |\
 |_|\
 '
-    expect(parseDigit(scan).toString()).toEqual('0')
+    expect(parseDigit(scan).digit).toEqual(0)
   })
   it('parses ones', () => {
     const scan = '\
@@ -16,7 +16,7 @@ describe('parseDigit', () => {
   |\
   |\
 '
-    expect(parseDigit(scan).toString()).toEqual('1')
+    expect(parseDigit(scan).digit).toEqual(1)
   })
   it('parses two', () => {
     const scan = '\
@@ -24,7 +24,7 @@ describe('parseDigit', () => {
  _|\
 |_ \
 '
-    expect(parseDigit(scan).toString()).toEqual('2')
+    expect(parseDigit(scan).digit).toEqual(2)
   })
   it('parses threes', () => {
     const scan = '\
@@ -32,7 +32,7 @@ describe('parseDigit', () => {
  _|\
  _|\
 '
-    expect(parseDigit(scan).toString()).toEqual('3')
+    expect(parseDigit(scan).digit).toEqual(3)
   })
   it('parses fours', () => {
     const scan = '\
@@ -40,7 +40,7 @@ describe('parseDigit', () => {
 |_|\
   |\
 '
-    expect(parseDigit(scan).toString()).toEqual('4')
+    expect(parseDigit(scan).digit).toEqual(4)
   })
   it('parses fives', () => {
     const scan = '\
@@ -48,7 +48,7 @@ describe('parseDigit', () => {
 |_ \
  _|\
 '
-    expect(parseDigit(scan).toString()).toEqual('5')
+    expect(parseDigit(scan).digit).toEqual(5)
   })
   it('parses sixes', () => {
     const scan = '\
@@ -56,7 +56,7 @@ describe('parseDigit', () => {
 |_ \
 |_|\
 '
-    expect(parseDigit(scan).toString()).toEqual('6')
+    expect(parseDigit(scan).digit).toEqual(6)
   })
   it('parses sevens', () => {
     const scan = '\
@@ -64,7 +64,7 @@ describe('parseDigit', () => {
   |\
   |\
 '
-    expect(parseDigit(scan).toString()).toEqual('7')
+    expect(parseDigit(scan).digit).toEqual(7)
   })
   it('parses eights', () => {
     const scan = '\
@@ -72,7 +72,7 @@ describe('parseDigit', () => {
 |_|\
 |_|\
 '
-    expect(parseDigit(scan).toString()).toEqual('8')
+    expect(parseDigit(scan).digit).toEqual(8)
   })
   it('parses nines', () => {
     const scan = '\
@@ -80,7 +80,7 @@ describe('parseDigit', () => {
 |_|\
  _|\
 '
-    expect(parseDigit(scan).toString()).toEqual('9')
+    expect(parseDigit(scan).digit).toEqual(9)
   })
   it('returns an illegible number for bad scans', () => {
     const scan = '\
@@ -93,7 +93,7 @@ describe('parseDigit', () => {
 })
 
 describe('parseAccountNumber', () => {
-  it('parses a whole account number', () => {
+  it('parses a whole account number across multiple lines', () => {
     const scanLines = '\
     _  _     _  _  _  _  _ \n\
   | _| _||_||_ |_   ||_||_|\n\
